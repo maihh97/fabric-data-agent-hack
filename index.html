@@ -183,7 +183,7 @@
     <!-- 01 WELCOME & CHALLENGE -->
     <section class="page active" id="p0">
       <div class="hero-card">
-        <p class="eyebrow" style="color:#000000">Microsoft x East London NHS Trust - Fabric Data Agent Hackathon</p>
+        <p class="eyebrow" style="color:#000000">Microsoft x East London NHS Foundation Trust - Fabric Data Agent Hackathon</p>
         <h1>Build a Fabric Data Agent</h1>
         <p>Today you'll build a conversational data agent that reasons over two datasets. Out of the box the agent gets some answers wrong; your job is to investigate why and configure it until it's reliable. Use the menu on the left to move through the guide.</p>
       </div>
@@ -210,13 +210,13 @@
       <h2>The problem</h2>
       <div class="note problem"><span class="lab">Why we're here</span>Right now, with no configuration, the Fabric Data Agent generates <strong>incorrect answers</strong> to several of these questions. The data has quirks the agent can't guess on its own - so it miscounts, splits categories, or picks the wrong column. Let's try to improve it.</div>
 
-      <h3>Questions the bare agent struggles with</h3>
+      <h3>Questions the agent currently struggles with</h3>
       <table>
         <thead><tr><th>Question</th><th>What trips the agent up</th>
         <tbody>
-          <tr><td>How many patients were readmitted within 28 days?</td><td><code>ReAdmittedWithin28Days</code> is <code>1</code> or <code>NULL</code> - there's no <code>0</code>. NULL means "not readmitted."</td></tr>
+          <tr><td>What proportion of patients were cancelled by the patient?</td><td>Agent answer: The proportion of appointments cancelled by the patient is <code>0</code>. <i> This is incorrect</i>
           <tr><td>How many DNAs in Tower Hamlets last December?</td><td>"Tower Hamlets" and "TowerHamlets" both appear (~10k each) and dates are <code>DD/MM/YYYY</code>.</td></tr>
-          <tr><td>Which patients had a community DNA and were later admitted?</td><td>Needs a join across <em>both</em> sources on <code>LPI_Pseudonym</code> - and the right source routing.</td></tr>
+          <tr><td>Which Ward saw the most discharges since 1st Jan 2026 in OLD AGE PSYCHIATRY?</td><td>Agent answer: No data was found for discharges from Old Age Psychiatry wards since January 1st, 2026. This might mean there have been no discharges in this directorate during that period, or the data is not available for these criteria. <i> This is incorrect</i></td>
           <tr><td>Average contact duration for attended appointments?</td><td>"Attended" isn't a column - it's <code>AttendedOrDNADesc = 'On time : Seen'</code>.</td></tr>
         </tbody>
       </table>
@@ -236,6 +236,10 @@
           <h3 style="margin-top:0;color:var(--brand)">Core - answer correctly</h3>
           <p>Your agent must return the right answer to every benchmark question in the exercise workbook's question tabs. From the community question set:</p>
           <ul>
+            <li>How many admissions where there in 2025 excluding virtual wards?</li>
+            <li>Which Ward saw the most discharges since 1st Jan 2026 in OLD AGE PSYCHIATRY?</li>
+            <li>What was the average length of stay in days in 2024 between admission and discharge date?</li>
+            <li>What Ethnicity has the most admissions?</li>
             <li>How many appointments were there in December 2025?</li>
             <li>What proportion of appointments were cancelled by the patient?</li>
             <li>How many face-to-face appointments were there in December 2025?</li>
@@ -254,8 +258,9 @@
         <tbody>
           <tr><td><span class="t">11:00 – 11:45</span></td><td><strong>Introduction &amp; Hackathon walkthrough</strong><br>Kick-off, the challenge brief, and a live walkthrough of how a data agent works end to end.</td>
           <tr><td><span class="t">11:55 – 12:00</span></td><td><strong>Setup</strong><br>Teams form, confirm Fabric capacity, connect both datasets, and select the right tables.</td>
-          <tr><td><span class="t">12:00 – 14:00</span></td><td><strong>Configure your agent</strong><br>Investigate the benchmark questions, diagnose why the bare agent fails, and add instructions, example queries, and routing to fix it.</td>
-          <tr><td><span class="t">14:30 – 14:30</span></td><td><strong>Presentation</strong><br> Present to our judges and show off your agent's accuracy and robustness.</td>
+          <tr><td><span class="t">12:00 – 12:30</span></td><td><strong>Lunch break</strong></td>
+          <tr><td><span class="t">12:30 – 14:30</span></td><td><strong>Configure your agent</strong><br>Investigate the benchmark questions, diagnose why the bare agent fails, and add instructions, example queries, and routing to fix it.</td>
+          <tr><td><span class="t">14:30 – 15:00</span></td><td><strong>Presentation</strong><br> Present to our judges and show off your agent's accuracy and robustness.</td>
         </tbody>
       </table>
 
